@@ -41,36 +41,22 @@ Ix = (im1x + im2x) ./ 2;
 Iy = (im1y + im2y) ./ 2;
 It = (im1t + im2t) ./ 2;
 
-newnumb1 = windowSize - mod(size(im1,1),windowSize)
-newnumb2 = windowSize - mod(size(im1,2),windowSize)
-
-for i = 1 : windowSize-1 : newnumb2
-    for j = 1 : windowSize-1 : newnumb2
-        
-        Ixwindow=Ix(i  : i + windowSize-1 , j : j + windowSize-1)
-        Iywindow=Iy(i  : i + windowSize-1 , j : j + windowSize-1)
-        Itwindow=It(i  : i + windowSize-1 , j : j + windowSize-1)
-        
-        A=[Ixwindow Iywindow]
-        B=Itwindow
-
-        [outpute]=inv(A'*A)*A'*B
-        
-        u(i  : i + windowSize-1 , j : j + windowSize-1) = outpute(i  : i + windowSize-1,:);
-        v(i  : i + windowSize-1 , j : j + windowSize-1) = outpute(i+1  : i+1 + windowSize-1,:);
-        
-        
+for i = 1 : windowSize : size(im1,1)
+    for j = 1 : windowSize : size(im1,2)
+        Ixwindow=Ix(1*i  : i+windo , 1*i : j * windowSize);
+        %Iywindow=reshape(Iy(1:windowSize,1:windowSize),[1,windowSize^2]);
+        %Itwindow=reshape(It(1:windowSize,1:windowSize),[1,windowSize^2]);
     end
 end
-% A=[Ixwindow Iywindow];
-% B=Itwindow;
-% 
-% [outpute]=inv(A'*A)*A'*B;
-% 
-% size(outpute)
-% 
-% u=outpute(1:windowSize^2,:);
-% v=outpute((windowSize^2)+1:(windowSize^2)*2,:);
+A=[Ixwindow Iywindow];
+B=Itwindow;
+
+[outpute]=inv(A'*A)*A'*B;
+
+size(outpute)
+
+u=outpute(1:windowSize^2,:);
+v=outpute((windowSize^2)+1:(windowSize^2)*2,:);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
