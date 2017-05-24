@@ -27,7 +27,16 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin of "Write your code here" section %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[u_base , v_base] = LK(im1Pyr{numLevels},im2Pyr{numLevels},windowSize);
 
+for level = numLevels-1 : -1 : 1 %iterative way of descending levels
+    
+    u_current = u_base;
+    v_current = v_base;
+    
+    
+    
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % End of "Write your code here" section %

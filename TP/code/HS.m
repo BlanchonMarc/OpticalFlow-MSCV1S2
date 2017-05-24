@@ -27,7 +27,7 @@ ItMask_2 = [1 1; 1 1];
 meanFilter = (1/8) * ones(3,3); % Create the mean filter and make the sum = 1 with the center pixel with no weight (0)
 meanFilter(2,2) = 0;
 
-Ix = (imfilter(im1,IxMask) + imfilter(im2,IxMask))/2; % Convolute the corrsponding filters with the images
+Ix = (imfilter(im1,IxMask) + imfilter(im2,IxMask))/2; % Convolute the corresponding filters with the images
 Iy = (imfilter(im1,IyMask) + imfilter(im2,IyMask))/2;
 It = imfilter(im1,ItMask_1) + imfilter(im2,ItMask_2);
 
