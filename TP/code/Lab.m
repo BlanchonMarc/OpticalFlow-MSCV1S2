@@ -8,6 +8,6 @@ lambda = 0.1;
 
 %plotOF_arrows(u,v)
 
-[u1,v1] = LK(im1, im2 , 2);
+[u1,v1] = LK(im1, im2 , 5);
 
 plotOF_arrows(u1,v1)
