@@ -118,21 +118,9 @@ plotOF_arrows(u2,v2)
 
 xm_move = xm_move + u2;
 ym_move = ym_move + v2;
-
-newim = zeros(size(im2));
-
-xm_move = floor(xm_move);
-ym_move = floor(ym_move);
-
-for i = 1 : size(im2,1)
-    for j = 1 : size(im2,2)       
-        if xm_move(i,j) > 0 && ym_move(i,j) > 0 && xm_move(i,j) < size(im2,2) && ym_move(i,j) < size(im2,1)
-            %fprintf('inside : %f , %f \n' , xm_move(i,j) , ym_move(i,j));
-            newim(i,j) = im2( ym_move(i,j) , xm_move(i,j));
-        end
+for i = 1 : size(im1,1)
+    for j = 1 : size(im1,2)
+        xm_move 
+        newim(i,j) = im2(xm_move , ym_move)
     end
 end
-
-figure
-imshow(newim,[])
-
